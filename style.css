@@ -1,4 +1,5 @@
-*  {
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,28 +9,32 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Encabezado */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f8f8f8;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 
-heder img {
+header img {
     height: 40px;
 }
 
+/* Navegación principal */
 nav ul {
     list-style: none;
     display: flex;
 }
 
 nav ul li {
+    position: relative;
     margin-left: 20px;
 }
 
+/* Enlaces principales */
 nav ul li a {
     text-decoration: none;
     color: #333;
@@ -39,4 +44,126 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #007bff;
+}
+
+/* Submenú oculto por defecto */
+nav ul li .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+/* Mostrar submenú al hacer clic */
+nav ul li.open .submenu {
+    display: block;
+}
+
+nav ul li .submenu li {
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Para que el label switch no tenga padding extra */
+nav ul li .submenu li label.switch {
+    padding: 0;
+    margin: 0;
+}
+
+/* Texto del modo oscuro */
+.modo-oscuro-text {
+    margin-left: 10px;
+    color: #333;
+    font-weight: normal;
+    user-select: none;
+}
+
+/* Color texto modo oscuro dentro del submenu */
+body.dark-mode .modo-oscuro-text {
+    color: #ddd;
+}
+
+/* Estilos de los enlaces dentro del submenu */
+nav ul li .submenu li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+nav ul li .submenu li a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Pie de página */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #f8f8f8;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 100;
+}
+
+
+
+
+/* Fondo de la página */
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+main {
+    min-height: calc(100vh - 100px); /* Altura de toda la pantalla menos header y footer */
+    display: flex;
+    align-items: center;  /* Centrar vertical */
+    justify-content: center; /* Centrar horizontal */
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 60px;
+    padding: 20px;
+    max-width: 700px; /* Ancho máximo para que no se estire demasiado */
+}
+
+/* Tarjetas de icono */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.card span {
+    font-size: 14px;
+    text-align: center;
 }
